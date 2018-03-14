@@ -5,7 +5,6 @@ module MyPagePatches
       base.send(:include, InstanceMethods)
 
       base.class_eval do
-        unloadable
         safe_attributes 'landing_page', 'my_activity', 'my_cust_query', 'my_project'
       end
     end

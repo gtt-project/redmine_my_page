@@ -5,7 +5,6 @@ module MyPagePatches
       base.send(:include, InstanceMethods)
 
       base.class_eval do
-        unloadable
         helper :issues
         helper :queries
         if respond_to? :alias_method

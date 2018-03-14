@@ -4,7 +4,6 @@ module MyPagePatches
       base.send(:include, InstanceMethods)
 
       base.class_eval do
-        unloadable
         if respond_to? :before_action
           before_action :landing_page_index, :only => :index
         else
