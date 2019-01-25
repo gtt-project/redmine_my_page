@@ -2,18 +2,18 @@ module MyPagePatches
   module ActivitiesControllerPatch
 
     def self.included(base) # :nodoc:
-      base.send(:include, InstanceMethods)
+      base.send(:prepend, InstanceMethods)
 
       base.class_eval do
         unloadable
         helper :issues
         helper :queries
-        alias_method_chain :index, :esi
       end
     end
 
     module InstanceMethods
-      def index_with_esi
+      def index
+        super
         if Setting.plugin_redmine_my_page["my_activity_enable"] == "1"
           @days = Setting.activity_days_default.to_i
 
@@ -80,7 +80,7 @@ module MyPagePatches
             end
           end
         else
-          index_without_esi
+          index
         end
       end
     end

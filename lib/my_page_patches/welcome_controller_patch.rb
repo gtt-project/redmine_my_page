@@ -5,7 +5,7 @@ module MyPagePatches
 
       base.class_eval do
         unloadable
-        before_filter :landing_page_index, :only => :index
+        before_action :landing_page_index, :only => :index
       end
     end
 
