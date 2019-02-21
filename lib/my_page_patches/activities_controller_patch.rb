@@ -13,7 +13,6 @@ module MyPagePatches
 
     module InstanceMethods
       def index
-        super
         if Setting.plugin_redmine_my_page["my_activity_enable"] == "1"
           @days = Setting.activity_days_default.to_i
 
@@ -80,10 +79,9 @@ module MyPagePatches
             end
           end
         else
-          index
+          super
         end
       end
     end
   end
 end
-
