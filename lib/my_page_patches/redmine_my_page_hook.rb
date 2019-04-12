@@ -8,6 +8,10 @@ module MyPagePatches
       user_langing_page_options(context)
     end
 
+    def view_layouts_base_html_head(context)
+      javascript_include_tag(:app, :plugin => 'redmine_my_page')
+    end
+
     def controller_account_success_authentication_after(context={})
       return unless context[:user].present?
 
