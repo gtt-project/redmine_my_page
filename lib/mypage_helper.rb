@@ -6,7 +6,7 @@ module MypageHelper
     elsif pref.landing_page.start_with?('p-')
       home_project = Project.find_by_id(pref.landing_page.gsub("p-","").to_i)
       return if home_project.nil? || home_project.archived?
-      ret_url = view.issues_url( :project_id => home_project.id )
+      ret_url = view.project_issues_url( :project_id => home_project.identifier )
     elsif pref.landing_page.start_with?('q-')
       query_id = pref.landing_page.gsub("q-","").to_i
       query = IssueQuery.find_by_id(query_id)
