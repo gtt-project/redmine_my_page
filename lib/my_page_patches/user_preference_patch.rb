@@ -6,13 +6,16 @@ module MyPagePatches
 
       base.class_eval do
         unloadable
-        safe_attributes 'landing_page', 'my_activity', 'my_cust_query'
+        safe_attributes 'landing_page', 'my_activity', 'my_cust_query', 'my_project'
       end
     end
 
     module InstanceMethods
       def landing_page; self[:landing_page] end
       def landing_page=(value); self[:landing_page]=value end
+
+      def my_project; self[:my_project] end
+      def my_project=(value); self[:my_project]=value end
 
       def my_activity
         if self[:my_activity].nil?
