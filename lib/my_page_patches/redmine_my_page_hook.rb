@@ -70,6 +70,12 @@ module MyPagePatches
       s << select_tag( "pref[landing_page]", grouped_options_for_select(selection_options,
                     selected_key = user.pref.landing_page ), :id => 'pref_landing_page', :include_blank => true )
       s << "</p>"
+      s << "<p id='getPreferredProject' style='display: none;'>"
+      s << label_tag( "pref_my_project", l(:label_my_preferred_project) )
+      s << select_tag( "pref[my_project]", grouped_options_for_select([[l(:label_project_issues), projects.
+        map { |p| ["#{p.name}", "#{p.id}" ] } ]],
+                    selected_key = user.pref.my_project ), :id => 'pref_my_project', :include_blank => true )
+      s << "</p>"
 
       return s.html_safe
     end
