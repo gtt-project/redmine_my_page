@@ -8,6 +8,10 @@ module MyPagePatches
       user_langing_page_options(context)
     end
 
+    def view_layouts_base_html_head(context)
+      javascript_include_tag(:app, :plugin => 'redmine_my_page')
+    end
+
     def controller_account_success_authentication_after(context={})
       return unless context[:user].present?
 
@@ -65,6 +69,12 @@ module MyPagePatches
       s << label_tag( "pref_landing_page", l(:label_landing_page) )
       s << select_tag( "pref[landing_page]", grouped_options_for_select(selection_options,
                     selected_key = user.pref.landing_page ), :id => 'pref_landing_page', :include_blank => true )
+      s << "</p>"
+      s << "<p id='getPreferredProject' style='display: none;'>"
+      s << label_tag( "pref_my_project", l(:label_my_preferred_project) )
+      s << select_tag( "pref[my_project]", grouped_options_for_select([[l(:label_project_issues), projects.
+        map { |p| ["#{p.name}", "#{p.id}" ] } ]],
+                    selected_key = user.pref.my_project ), :id => 'pref_my_project', :include_blank => true )
       s << "</p>"
 
       return s.html_safe
