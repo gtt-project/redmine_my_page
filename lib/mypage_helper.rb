@@ -11,7 +11,7 @@ module MypageHelper
       query_id = pref.landing_page.gsub("q-","").to_i
       query = IssueQuery.find_by_id(query_id)
       return if query.nil?
-      if pref.my_project
+      if !pref.my_project.blank?
         home_project = Project.find_by_id(pref.my_project.to_i)
         param_hash = query.project_id.nil? ? { project_id: home_project.identifier, :query_id => query_id } : { :project_id => query.project_id, :query_id => query_id }
         ret_url = view.project_issues_url( param_hash )
