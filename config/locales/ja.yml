@@ -1,0 +1,29 @@
+# Japanese strings go here for Rails i18n
+ja:
+  activities: 活動
+  custom_query_issues_list: マイカスタムクエリのチケット一覧
+  my_custom_queries: マイカスタムクエリ
+
+  label_my_activity_enable: マイページで活動リストを有効化
+  em_my_activity_enable: ユーザーのマイページで活動ページのリストを有効化する場合はチェックします。コアとなるRedmineの活動の読み込みにいくつかのバグが残っています。
+
+  label_select_query: クエリを選択
+  label_update_query: クエリ選択を更新
+  label_my_custom_queries: カスタムクエリ
+  label_select_activities: 活動を選択
+  label_update_activities: 活動選択を更新
+  label_my_activities: 活動
+  label_show_user_activity: ユーザー向け
+  label_project_issues: プロジェクトのチケット一覧
+
+  label_activity_not_enabled: マイページで活動リストが有効化されていません。
+
+  label_custom_queries: クエリを選択
+  label_custom_query_limit: チケット一覧を制限
+
+  label_landing_page: ログイン後のデフォルトページ
+  label_default_my_page: ページ
+
+  label_homelink_override: ホームリンクをユーザーのランディングページに変更
+  label_my_landing_page: マイランディングページ
+  label_my_preferred_project: 優先プロジェクトを選択
